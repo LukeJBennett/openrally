@@ -1,0 +1,69 @@
+<h1 id="openrally-org">OpenRally.org</h1>
+<p>OpenRally.org - Establishing Rally Interoperability Standards For The World Ahead</p>
+<p>Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution 4.0 International license</p>
+<h2 id="what-is-openrally-">What is OpenRally?</h2>
+<p>OpenRally is a community standard for electronic exchange of rally information. It is owned and maintained by those who choose to collaborate.</p>
+<h2 id="release-notes-">Release Notes:</h2>
+<h3 id="v1-0-2-">v1.0.2:</h3>
+<ul>
+<li>Added new marker tag &quot;show_coordinates&quot; to indicate that GPS coordinates should be displayed to competitors</li>
+</ul>
+<h3 id="v1-0-0-">v1.0.0:</h3>
+<ul>
+<li>Separation of cross-country tags from road rally tags</li>
+<li>Removal of duplicate tags</li>
+<li>Specified sensible defaults in XSD, per FIM or other current regulations</li>
+<li>Inclusion of tulip and notes drawings/icons via base64 PNG or SVG</li>
+</ul>
+<h2 id="compatbility">Compatbility</h2>
+<p>These software and hardware projects currently support OpenRally format.</p>
+<h3 id="roadbook-creation-software">Roadbook Creation Software</h3>
+<ul>
+<li>Rally Navigator</li>
+<li>RiverNotes</li>
+</ul>
+<h3 id="devices">Devices</h3>
+<ul>
+<li>TowerOne</li>
+<li>Rally Comp</li>
+<li>RallyBlitz</li>
+<li>F2R γ1000</li>
+</ul>
+<h2 id="collaborators">Collaborators</h2>
+<p>(in order of joining)</p>
+<ul>
+<li>ICO Racing</li>
+<li>Rally Navigator</li>
+<li>CoMaster</li>
+<li>F2R</li>
+<li>Rally Comp</li>
+<li>Amageza Rally</li>
+<li>Hog Wild Racing</li>
+<li>R3 - Roadbook Rally Raid</li>
+<li>Tulip</li>
+<li>Rally Blitz</li>
+<li>RiverNotes</li>
+<li>TerraPirata</li>
+</ul>
+<h2 id="mailing-lists">Mailing Lists</h2>
+<p>To join the discussion or follow along, subscribe to the OpenRally.org mailing list by sending an email to <a href="mailto:openrally-request@freelists.org?subject=subscribe">openrally-request</a> with &#39;subscribe&#39; in the Subject field.</p>
+<h2 id="why-gpx-">Why GPX?</h2>
+<p>GPX is the most common geo-mapping file format. Most devices which record tracks or have online maps can import/export GPX format.</p>
+<p>GPX is also a format with many existing tools for converting.</p>
+<p>GPX was designed with extensibility in mind.</p>
+<h3 id="but-gpx-is-xml-and-xml-is-too-verbose-">But GPX is XML and XML is too verbose...</h3>
+<p>It&#39;s true that XML <em>can</em> be more verbose than a binary format. However, once image data for tulips and notes fields are included, the weight of the XML text is negligible. Keep in mind, this is an <em>interchange</em> format, not the required format for storage or network transfer, which are entirely in the domain of the user. As an interchange format, ease of use is paramount.</p>
+<h2 id="implementation-notes">Implementation notes</h2>
+<p>Authors of software which are consuming OpenRally GPX files should inspect the version of the schema specified in the GPX document. Parsing should be according to the version specified. We will implement <a href="http://semver.org">http://semver.org</a> versioning as of v1.0.0.</p>
+<h2 id="examples">Examples</h2>
+<p>Check out cross-country/example.gpx and cross-country/openrally.xsd for the latest specification</p>
+<h2 id="testing-validation">Testing/validation</h2>
+<p>Please test and validate using xmllint.</p>
+<pre><code>$ cd cross-country
+$ ./validate<span class="hljs-selector-class">.sh</span>
+openrally<span class="hljs-selector-class">.xsd</span> validates
+../common/gpx-strict<span class="hljs-selector-class">.xsd</span> validates
+test_wrapper<span class="hljs-selector-class">.xsd</span> validates
+example<span class="hljs-selector-class">.gpx</span> validates
+</code></pre><h2 id="what-about-road-rally-">What about road rally?</h2>
+<p>OpenRally is still in it&#39;s early stages and most adopters have been in cross-country rally. We&#39;re hopeful to add more support for road rally as interest grows. For now, cross-country users should use OpenRally v1.0.2, and road rally please see <a href="https://github.com/openrally/openrally/tree/v0.3-DRAFT">https://github.com/openrally/openrally/tree/v0.3-DRAFT</a>. </p>
